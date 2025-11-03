@@ -1,11 +1,7 @@
 package lotto;
 
-import java.util.List;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Map;
-import java.util.EnumMap;
 import java.text.DecimalFormat;
+import java.util.*;
 
 public class Calculation {
     static int matches(List<Integer> ticket, List<Integer> winner) {
@@ -29,7 +25,8 @@ public class Calculation {
         return Winnings.determine(match, bonusMatch);
     }
 
-    static Map<Winnings, Integer> calculateAll(List<List<Integer>> tickets, List<Integer> winner, int bonus) {
+    static Map<Winnings, Integer> calculateAll(
+            List<List<Integer>> tickets, List<Integer> winner, int bonus) {
         Map<Winnings, Integer> count = new EnumMap<>(Winnings.class);
         for (Winnings winning : Winnings.values()) {
             count.put(winning, 0);
@@ -43,12 +40,17 @@ public class Calculation {
 
     static void printResult(Map<Winnings, Integer> result) {
         System.out.println("당첨 통계");
-        System.out.printf("3개 일치 (%,d원) - %,d개%n", Winnings.FIFTH.getWinnings(), result.get(Winnings.FIFTH));
-        System.out.printf("4개 일치 (%,d원) - %,d개%n", Winnings.FOURTH.getWinnings(), result.get(Winnings.FOURTH));
-        System.out.printf("5개 일치 (%,d원) - %,d개%n", Winnings.THIRD.getWinnings(), result.get(Winnings.THIRD));
-        System.out.printf("5개 일치, 보너스 볼 일치 (%,d원) - %,d개%n",
+        System.out.printf(
+                "3개 일치 (%,d원) - %,d개%n", Winnings.FIFTH.getWinnings(), result.get(Winnings.FIFTH));
+        System.out.printf(
+                "4개 일치 (%,d원) - %,d개%n", Winnings.FOURTH.getWinnings(), result.get(Winnings.FOURTH));
+        System.out.printf(
+                "5개 일치 (%,d원) - %,d개%n", Winnings.THIRD.getWinnings(), result.get(Winnings.THIRD));
+        System.out.printf(
+                "5개 일치, 보너스 볼 일치 (%,d원) - %,d개%n",
                 Winnings.SECOND.getWinnings(), result.get(Winnings.SECOND));
-        System.out.printf("6개 일치 (%,d원) - %,d개%n", Winnings.FIRST.getWinnings(), result.get(Winnings.FIRST));
+        System.out.printf(
+                "6개 일치 (%,d원) - %,d개%n", Winnings.FIRST.getWinnings(), result.get(Winnings.FIRST));
     }
 
     static void printEarnings(Map<Winnings, Integer> result, Total total) {

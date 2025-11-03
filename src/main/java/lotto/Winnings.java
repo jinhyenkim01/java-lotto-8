@@ -18,18 +18,6 @@ public enum Winnings {
         this.winnings = winnings;
     }
 
-    public int getMatch() {
-        return match;
-    }
-
-    public boolean getBonus() {
-        return bonus;
-    }
-
-    public int getWinnings() {
-        return winnings;
-    }
-
     public static Winnings determine(int match, boolean bonus) {
         for (Winnings winnings : values()) {
             if ((winnings.match == match) && (winnings.match != 5)) {
@@ -40,5 +28,17 @@ public enum Winnings {
             }
         }
         return NONE;
+    }
+
+    public int getMatch() {
+        return match;
+    }
+
+    public boolean getBonus() {
+        return bonus;
+    }
+
+    public int getWinnings() {
+        return winnings;
     }
 }

@@ -5,10 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 public class Total {
     private final int total;
 
-    public int get() {
-        return total;
-    }
-
     public Total(int total) {
         this.total = validate(total);
     }
@@ -59,5 +55,9 @@ public class Total {
     public static String ask() {
         System.out.println("구입금액을 입력해 주세요.");
         return Console.readLine();
+    }
+
+    public int get() {
+        return total;
     }
 }

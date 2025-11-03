@@ -1,16 +1,13 @@
 package lotto;
 
 import camp.nextstep.edu.missionutils.Randoms;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Ticket {
     private final List<List<Integer>> ticket;
-
-    public List<List<Integer>> get() {
-        return ticket;
-    }
 
     public Ticket(Total total) {
         this.ticket = generateAll(amount(total.get()));
@@ -46,5 +43,9 @@ public class Ticket {
 
     static int amount(int total) {
         return total / Constants.LOTTO_PRICE;
+    }
+
+    public List<List<Integer>> get() {
+        return ticket;
     }
 }

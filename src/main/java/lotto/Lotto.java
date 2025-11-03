@@ -1,16 +1,13 @@
 package lotto;
 
-import java.util.List;
 import camp.nextstep.edu.missionutils.Console;
+
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Lotto {
     private final List<Integer> numbers;
-
-    public List<Integer> get() {
-        return numbers;
-    }
 
     public Lotto(List<Integer> numbers) {
         this.numbers = validate(numbers);
@@ -39,6 +36,7 @@ public class Lotto {
     static List<Integer> parse(String lottery) {
         try {
             return Arrays.stream(lottery.split(","))
+                    .map(String::trim)
                     .filter(s -> !s.trim().isEmpty())
                     .map(Integer::parseInt)
                     .collect(Collectors.toList());
@@ -55,10 +53,10 @@ public class Lotto {
 
     static void amount(List<Integer> lottery) {
         for (int lotteryNo : lottery) {
-        if (lotteryNo < Constants.MIN_NUMBER || lotteryNo > Constants.MAX_NUMBER) {
-                throw new IllegalArgumentException(String.format("[ERROR] 로또 번호는 %d과 %d 사이여야 합니다.",
-                        Constants.MIN_NUMBER, Constants.MAX_NUMBER));
-
+            if (lotteryNo < Constants.MIN_NUMBER || lotteryNo > Constants.MAX_NUMBER) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "[ERROR] 로또 번호는 %d과 %d 사이여야 합니다.", Constants.MIN_NUMBER, Constants.MAX_NUMBER));
             }
         }
     }
@@ -72,5 +70,9 @@ public class Lotto {
     static String ask() {
         System.out.println("당첨 번호를 입력해 주세요.");
         return Console.readLine();
+    }
+
+    public List<Integer> get() {
+        return numbers;
     }
 }
