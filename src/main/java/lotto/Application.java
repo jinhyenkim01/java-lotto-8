@@ -1,5 +1,8 @@
 package lotto;
 
+import java.util.Map;
+import java.util.EnumMap;
+
 public class Application {
     public static void main(String[] args) {
         Total total = Total.init();
@@ -9,5 +12,9 @@ public class Application {
 
         Lotto lotto = Lotto.init();
         Bonus bonus = Bonus.init(lotto);
+
+        Map<Winnings, Integer> result = Calculation.calculateAll(ticket.get(), lotto.get(), bonus.get());
+        Calculation.printResult(result);
+        Calculation.printEarnings(result, total);
     }
 }
