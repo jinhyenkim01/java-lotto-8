@@ -9,7 +9,7 @@ public class Total {
         this.total = validate(total);
     }
 
-    public int getTotal() {
+    public int get() {
         return total;
     }
 

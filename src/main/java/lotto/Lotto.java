@@ -12,7 +12,7 @@ public class Lotto {
         this.numbers = validate(numbers);
     }
 
-    public List<Integer> getNumbers() {
+    public List<Integer> get() {
         return numbers;
     }
 
