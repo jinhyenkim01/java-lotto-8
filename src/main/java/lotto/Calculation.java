@@ -56,7 +56,7 @@ public class Calculation {
         for (Winnings winning : Winnings.values()) {
             totalWinnings = totalWinnings + (result.get(winning) * winning.getWinnings());
         }
-        double earningsRate = totalWinnings / total.get();
+        double earningsRate = (double) totalWinnings / (double) total.get();
         DecimalFormat df = new DecimalFormat("0.0%");
         String percent = df.format(earningsRate);
         System.out.print("총 수익률은 ");

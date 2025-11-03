@@ -18,8 +18,9 @@ public class Ticket {
 
     static List<Integer> generateOne() {
         List<Integer> ticket = Randoms.pickUniqueNumbersInRange(1, 45, 6);
-        Collections.sort(ticket);
-        return ticket;
+        List<Integer> copy = new ArrayList<>(ticket);
+        Collections.sort(copy);
+        return copy;
     }
 
     static List<List<Integer>> generateAll(int number) {

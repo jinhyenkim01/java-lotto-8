@@ -41,6 +41,12 @@ public class Lotto {
         }
     }
 
+    static void duplicate(List<Integer> lottery) {
+        if (lottery.stream().distinct().count() != lottery.size()) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 서로 중복될 수 없습니다.");
+        }
+    }
+
     static String ask() {
         System.out.println("당첨 번호를 입력해 주세요.");
         return Console.readLine();
@@ -49,6 +55,7 @@ public class Lotto {
     static List<Integer> validate(List<Integer> numbers) {
         size(numbers);
         amount(numbers);
+        duplicate(numbers);
         return numbers;
     }
 
