@@ -7,7 +7,7 @@ public class Application {
         Total total = Total.init();
 
         Ticket ticket = Ticket.init(total);
-        Ticket.printAllTickets(ticket);
+        Ticket.print(ticket);
 
         Lotto lotto = Lotto.init();
         Bonus bonus = Bonus.init(lotto);

@@ -8,12 +8,16 @@ import java.util.List;
 public class Ticket {
     private final List<List<Integer>> ticket;
 
-    public Ticket(Total total) {
-        this.ticket = generateAll(ticketNo(total.get()));
-    }
-
     public List<List<Integer>> get() {
         return ticket;
+    }
+
+    public Ticket(Total total) {
+        this.ticket = generateAll(amount(total.get()));
+    }
+
+    static Ticket init(Total total) {
+        return new Ticket(total);
     }
 
     static List<Integer> generateOne() {
@@ -32,7 +36,7 @@ public class Ticket {
         return allTickets;
     }
 
-    static void printAllTickets(Ticket tickets) {
+    static void print(Ticket tickets) {
         System.out.printf("%d개를 구매했습니다.%n", tickets.get().size());
         for (List<Integer> ticket : tickets.get()) {
             System.out.println(ticket);
@@ -40,11 +44,7 @@ public class Ticket {
         System.out.println();
     }
 
-    static int ticketNo(int total) {
-        return total / LottoConstants.LOTTO_PRICE;
-    }
-
-    static Ticket init(Total total) {
-        return new Ticket(total);
+    static int amount(int total) {
+        return total / Constants.LOTTO_PRICE;
     }
 }
