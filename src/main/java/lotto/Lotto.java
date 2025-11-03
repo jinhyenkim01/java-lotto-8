@@ -42,7 +42,7 @@ public class Lotto {
     }
 
     static String ask() {
-        System.out.println("로또 번호를 입력해 주세요.");
+        System.out.println("당첨 번호를 입력해 주세요.");
         return Console.readLine();
     }
 
@@ -57,6 +57,7 @@ public class Lotto {
             try {
                 String lottoInput = Lotto.ask();
                 List<Integer> lottoList = Lotto.parse(lottoInput);
+                System.out.println();
                 return new Lotto(lottoList);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

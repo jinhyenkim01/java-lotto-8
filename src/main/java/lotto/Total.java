@@ -38,7 +38,7 @@ public class Total {
     }
 
     public static String ask() {
-        System.out.println("금액을 입력해 주세요.");
+        System.out.println("구입금액을 입력해 주세요.");
         return Console.readLine();
     }
 
@@ -53,6 +53,7 @@ public class Total {
             try {
                 String totalInput = Total.ask();
                 int totalInt = parse(reformat(totalInput));
+                System.out.println();
                 return new Total(totalInt);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());

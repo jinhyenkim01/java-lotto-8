@@ -44,6 +44,7 @@ public class Bonus {
             try {
                 String bonusInput = Bonus.ask();
                 int bonusInt = Total.parse(Total.reformat(bonusInput));
+                System.out.println();
                 return new Bonus(bonusInt, lotto);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
